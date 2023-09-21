@@ -126,7 +126,7 @@ const ImageGallery = () => {
           </Row>
           <Row  className="justify-content-center">
           {user ?<Col xs ='auto'>
-                <p className=""><span className="sign_auth">Drag and drop images </span>to create a unique display of your favorite furry friends. Arrange them in any order that tugs at your heartstrings.</p>
+                <p className=""><span className="sign_auth">Drag and drop images </span>to create a unique display of your favorite furry friends. <span className="d-none d-md-inline-block">Arrange them in any order that tugs at your heartstrings.</span><span className="d-md-none"><br/>Use the space around the images,to scroll down and discover more adorable pet images</span></p>
             </Col>:
             <Col xs ='auto'>
                 <p className="sign_unauth">Sign In to drag and drop pets</p>
