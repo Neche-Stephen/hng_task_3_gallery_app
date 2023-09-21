@@ -41,8 +41,12 @@
 .pet-col{
   font-size: 18px;
   margin-bottom: 10px;
-  /* border: 1px solid red; */
   touch-action: none;
+}
+
+.pet-col_unauth{
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 .pet-img{
   max-height: 250px !important;

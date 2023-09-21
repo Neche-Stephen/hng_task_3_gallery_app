@@ -167,7 +167,7 @@ const ImageGallery = () => {
                 <Col xs = '9'>
                   <div className="row">
                   {users.map((user) => (
-                <div key={user.id} className="pet-col col-6 col-md-4 col-lg-3">
+                <div key={user.id} className="pet-col_unauth col-6 col-md-4 col-lg-3">
                       <p className="">{user.name}</p>
                      <div> <img src={user.url} className="img-fluid pet-img" alt="" /></div>
                     </div>
