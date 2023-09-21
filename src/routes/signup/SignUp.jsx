@@ -56,7 +56,7 @@ export default function SignUp() {
     <>
     <Navbar />
     <Container className='mt-5 signup_component'>
-        <Row className='justify-content-center align-items-center'>
+        <Row className='justify-content-center align-items-center mb-5'>
             <Col xs = '10' sm = '6' lg = '4'>
                     <div className='signup_pet animate__animated animate__swing'>
 

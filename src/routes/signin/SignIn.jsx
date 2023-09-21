@@ -51,7 +51,7 @@ export default function SignIn() {
     <>
     <Navbar />
     <Container className='mt-5 signin_component'>
-        <Row className='justify-content-center align-items-center'>
+        <Row className='justify-content-center align-items-center mb-5'>
                 <Col xs = '10' sm = '6' lg = '4'>
                     <div className='signin_pet animate__animated animate__swing'>
 
@@ -82,7 +82,7 @@ export default function SignIn() {
                         </div>
                        <div className="form-text text-danger" style={{fontWeight:'600'}}>{errorMessage}</div>
                    </div>
-                    <div className='row'>
+                    <div className='row '>
                         <div className='col'>
                             <div className='d-flex'>
                             <button disabled = {formLoading}  className='btn signin_btn me-5'>Sign In</button>
