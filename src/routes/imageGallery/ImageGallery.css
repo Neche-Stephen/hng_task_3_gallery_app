@@ -1,0 +1,36 @@
+.users {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+  }
+  
+  .user {
+    
+  }
+  
+  .users-form {
+    margin-bottom: 20px;
+  }
+
+.image_gallery{
+  position: relative;
+  /* border: 1px solid green; */
+}
+.search_results{
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 100%;
+}
+.search_results_col{
+  background-color: black;
+}
+.pet-col{
+  font-size: 18px;
+  margin-bottom: 10px;
+  /* border: 1px solid red; */
+}
+.pet-img{
+  max-height: 250px !important;
+  /* border: 1px solid green; */
+  border-radius: 10px;
+}

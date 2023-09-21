@@ -1,0 +1,18 @@
+nav{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav_home, .nav_signup, .nav_logout, .nav_signin{
+    text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      color:  var(--primary-color);
+}
+.nav_signup, .nav_logout, .nav_signin{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav_home{
+    font-size: 29px;
+    font-weight: 600;
+}
