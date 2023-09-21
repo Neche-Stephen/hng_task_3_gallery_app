@@ -8,7 +8,7 @@ export const data = [
   {
     id: 2,
     name: "Reba",
-    url : './images/small/smaller/reba.jpg',
+    url : './images/small/reba.jpg',
     // url : './images/reba.jpg',
 
     tag : 'cat'

@@ -6,8 +6,6 @@ import { signOutCurrentUser } from '../../utils/firebase.utils';
 import './Navbar.css'
 
 export default function Navbar({user, handleSearchChange}) {
-//   const [searchTerm, setSearchTerm] = useState('');
-
     const handleSignOut = () =>{
         signOutCurrentUser();
         const response = signOutCurrentUser();
