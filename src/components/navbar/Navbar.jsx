@@ -33,7 +33,7 @@ export default function Navbar({user, handleSearchChange}) {
                 className='form-control' 
                 // value={searchTerm}
                 onChange={handleSearchChange}
-                placeholder='Search for "dog" or "cat" pets'/>
+                placeholder='Search "dog" or "cat" pets'/>
             </Col>
               }
                 <Col xs = '6' sm ={user ? '4': '8'} lg = '4'>
