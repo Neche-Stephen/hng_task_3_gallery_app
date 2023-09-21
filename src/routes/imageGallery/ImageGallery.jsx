@@ -119,8 +119,8 @@ const ImageGallery = () => {
       <Navbar user = {user} handleSearchChange = {handleSearchChange}/>
       <div className="image_gallery">
         <Container className="mt-3 mb-1">
-          <Row className="justify-content-center" style={{border:'1px solid green'}}>
-            <Col xs ='auto' style={{border:'1px solid red'}}>
+          <Row className="justify-content-center">
+            <Col xs ='auto'>
                 <h1 className="animate__animated animate__bounce">Welcome to our Pawsome Pet Gallery!</h1>
             </Col>
           </Row>
