@@ -1,31 +1,32 @@
-.signin_pet{
-    background-image: url('../../../public/images/small/minnie.jpg');
+.signup_pet{
+    background-image: url('../../../public/images/small/jamie.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     height: 400px;
     /* border: 1px solid purple; */
 }
 
-.signin_component{
+.signup_component{
     font-family: 'Montserrat', sans-serif;
 }
 
-.signin_title{
+.signup_title{
     font-size: 18px;
 }
 
-.signin_input:focus{
+.signup_input:focus{
     border:1px solid #9DB557 !important;
     box-shadow: unset !important;
 }
-.signin_email, .signin_password{
+
+.signup_email, .signup_password{
     /* color:  var(--primary-color); */
     color: #9DB557;
     font-size: 18px;
     font-weight: 600;
 }
 
-.signin_btn{
+.signup_btn{
     background-color:  var(--primary-color) !important;
     /* background-color: #9DB557 !important; */
     /* background: linear-gradient(270deg, #9DB557 0%,  #228B22 100%) !important; */

@@ -12,17 +12,16 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import {Container, Row, Col} from 'react-bootstrap';
-import Spinner from 'react-bootstrap/Spinner';
 import Navbar from '../../components/navbar/Navbar';
 
-const SortableUser = ({ user }) => {
+const SortableUser = ({ pet }) => {
   const {
     attributes,
     listeners,
     setNodeRef,
     transform,
     transition,
-  } = useSortable({ id: user.id });
+  } = useSortable({ id: pet.id });
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
@@ -34,21 +33,20 @@ const SortableUser = ({ user }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className="pet-col col-6 col-md-4 col-lg-3"
+      className="pet-col col-10 col-lg-3"
     >
-     <p>{user.name}</p>
-     <div> <img src={user.url} className="img-fluid pet-img" alt="" /></div>
+     <p>{pet.name}</p>
+     <div> <img src={pet.url} className="img-fluid pet-img" alt="" /></div>
     </div>
   );
 };
 
 const ImageGallery = () => {
   const [user, setUser] = useState(null);
-  const [loadingPage, setLoadingPage] = useState(true);
   const handleSearchChange = (e) => {
     const searchTerm = e.target.value.toLowerCase();
     // Updating the 'users' state based on the current value of the search input
-    setUsers(
+    setPets(
       searchTerm
         ? data.filter((pet) => pet.tag.includes(searchTerm))
         : data
@@ -61,11 +59,10 @@ const ImageGallery = () => {
       if (user) {
         // User is signed in.
         setUser(user);
-        setLoadingPage(false);
+        console.log(user);
       } else {
         // User is signed out.
         setUser(null);
-        setLoadingPage(false);
       }
     });
 
@@ -73,20 +70,16 @@ const ImageGallery = () => {
     return () => unsubscribe();
   }, []);
 
-
-  const [users, setUsers] = useState(data);
-  // console.log(filteredData);
-  // console.log(users);
+  const [pets, setPets] = useState(data);
   const [inputValue, setInputValue] = useState("");
 
-
   const addUser = () => {
-    const newUser = {
+    const newPet = {
       id: Date.now().toString(),
       name: inputValue,
     };
     setInputValue("");
-    setUsers((users) => [...users, newUser]);
+    setPets((pets) => [...pets, newPet]);
   };
 
   const onDragEnd = (event) => {
@@ -94,39 +87,26 @@ const ImageGallery = () => {
     if (active.id === over.id) {
       return;
     }
-    setUsers((users) => {
-      const oldIndex = users.findIndex((user) => user.id === active.id);
-      const newIndex = users.findIndex((user) => user.id === over.id);
-      return arrayMove(users, oldIndex, newIndex);
+    setPets((pets) => {
+      const oldIndex = pets.findIndex((pet) => pet.id === active.id);
+      const newIndex = pets.findIndex((pet) => pet.id === over.id);
+      return arrayMove(pets, oldIndex, newIndex);
     });
   };
 
   return (
-    <>
-      {
-      loadingPage ?
-      <Container>
-        <Row className="justify-content-center mt-5">
-          <Col xs = 'auto'>
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          </Col>
-        </Row>
-      </Container>
-      :
-      <div className="gallery_component">
+    <div className="gallery_component">
       <Navbar user = {user} handleSearchChange = {handleSearchChange}/>
       <div className="image_gallery">
         <Container className="mt-3 mb-1">
           <Row className="justify-content-center">
             <Col xs ='auto'>
-                <h1 className="animate__animated animate__bounce">Welcome to our Pawsome Pet Gallery!</h1>
+                <h1>Welcome to our Pawsome Pet Gallery!</h1>
             </Col>
           </Row>
           <Row  className="justify-content-center">
-          {user ?<Col xs ='auto'>
-                <p className=""><span className="sign_auth">Drag and drop images </span>to create a unique display of your favorite furry friends. Arrange them in any order that tugs at your heartstrings.</p>
+            {user ?<Col xs ='auto'>
+                <p>Drag and drop images to create a unique display of your favorite furry friends. Arrange them in any order that tugs at your heartstrings.</p>
             </Col>:
             <Col xs ='auto'>
                 <p className="sign_unauth">Sign In to drag and drop pets</p>
@@ -136,23 +116,19 @@ const ImageGallery = () => {
         {user ? (
           <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
             <SortableContext
-              items={users}
+              items={pets}
               strategy={verticalListSortingStrategy}
             >
               <Container fluid>
                 <Row className="justify-content-center">
                   <Col xs ='9'>
                     <div className="row justify-content-around">
-                      {users.length > 0 ? users.map((user) => (
+                      {pets.map((pet) => (
                       <SortableUser
-                        key={user.id}
-                        user={user}
-                        isAuthenticated={true}
+                        key={pet.id}
+                        pet={pet}
                       />
-                    ))
-                  :
-                  <p className="no_search">Oops! No Pet Matches Found, Try searching "dog" or "cat"</p>
-                  }
+                    ))}
                     </div>
                   </Col>
                 </Row>
@@ -166,10 +142,10 @@ const ImageGallery = () => {
               <Row className="justify-content-around">
                 <Col xs = '9'>
                   <div className="row">
-                  {users.map((user) => (
-                <div key={user.id} className="pet-col col-6 col-md-4 col-lg-3">
-                      <p className="">{user.name}</p>
-                     <div> <img src={user.url} className="img-fluid pet-img" alt="" /></div>
+                  {pets.map((pet) => (
+                <div key={pet.id} className="pet-col col-10 col-lg-3">
+                      <p>{pet.name}</p>
+                     <div> <img src={pet.url} className="img-fluid" alt="" /></div>
                     </div>
                     ))}
                   </div>
@@ -180,8 +156,6 @@ const ImageGallery = () => {
         )}
       </div>
     </div>
-    }
-    </>
   );
 };
 export default ImageGallery;

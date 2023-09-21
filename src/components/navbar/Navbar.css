@@ -10,9 +10,18 @@ nav{
 .nav_signup, .nav_logout, .nav_signin{
     font-size: 18px;
     font-weight: 600;
+    position: relative;
+    top: 10px;
 }
 
 .nav_home{
     font-size: 29px;
     font-weight: 600;
+}
+
+@media (max-width:991px){
+    .nav_home{
+        position: relative;
+        top: 8px;
+    }    
 }

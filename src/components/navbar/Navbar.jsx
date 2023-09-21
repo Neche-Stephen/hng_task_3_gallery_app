@@ -5,7 +5,7 @@ import { signOutCurrentUser } from '../../utils/firebase.utils';
 
 import './Navbar.css'
 
-export default function Navbar({user, searchTerm , handleSearchChange}) {
+export default function Navbar({user, handleSearchChange}) {
 //   const [searchTerm, setSearchTerm] = useState('');
 
     const handleSignOut = () =>{
@@ -13,7 +13,8 @@ export default function Navbar({user, searchTerm , handleSearchChange}) {
         const response = signOutCurrentUser();
         response.then(() => {
             // The user is signed out.
-            console.log('out')
+            // console.log('out')
+            alert('You are now signed out')
           })
           .catch((error) => {
             // Handle sign-out errors
@@ -22,26 +23,28 @@ export default function Navbar({user, searchTerm , handleSearchChange}) {
   return (
    <nav>
          <Container>
-            <Row className='justify-content-between align-items-center'>
-                <Col xs = '3'>
-                    <p><Link to = '/' className='nav_home'>Paw-some Pets</Link></p>
+            <Row className='justify-content-center justify-content-sm-between align-items-center'>
+                <Col xs = 'auto' sm ='4' lg = '3'>
+                    <p><Link to = '/' className='nav_home'>Paw-some <span className='d-inline-block d-sm-none d-lg-inline-block'>Pets</span></Link></p>
                 </Col>
-                <Col xs = '4'>
-                    <input type="text" 
-                    className='form-control' 
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    placeholder='Search for a specific pet'/>
-                </Col>
-                <Col xs = '4'>
-                    <Row>
+              {
+                user && <Col xs = '6' sm = '4' lg = '4'>
+                <input type="text" 
+                className='form-control' 
+                // value={searchTerm}
+                onChange={handleSearchChange}
+                placeholder='Search for "dog" or "cat" pets'/>
+            </Col>
+              }
+                <Col xs = '6' sm ={user ? '4': '8'} lg = '4'>
+                    <Row className='justify-content-end align-items-center'>
                         <Col>
-                            {user ? <p className='nav_logout' onClick={handleSignOut}>Logout</p>:
-                            <Link to = '/login' className='nav_signin'>Signin</Link>    
+                            {user ? <p style={{cursor:'pointer'}} className='nav_logout' onClick={handleSignOut}>Logout</p>:
+                           <p> <Link to = '/login' className='nav_signin'>Signin</Link> </p>   
                              }
                         </Col>
                         <Col>
-                            <p><Link to = '/signup' className='nav_signup'>Create Account</Link></p>
+                            <p><Link to = '/signup' className='nav_signup'><span className='d-none d-lg-block'>Create Account</span> <span className='d-lg-none'>Login</span></Link></p>
                         </Col>
                     </Row>
                 </Col>
