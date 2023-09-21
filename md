@@ -1,16 +1,6 @@
 # HNG TASK 3 -  Develop a Drag-and-Drop Image gallery using React or Next Js
 
-# How to run project locally
-
-1. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-2. Clone the project and run npm install in the terminal, to install neccessary packages needed for the project.
-
-3. Run "npm start" to view the project in your local browser at http://localhost:3000
-
-How to use the project
-
-1. Online Demo of the project can be found here. https://hng-task-3-gallery-app.vercel.app/
+1. Demo of the project can be found here. https://hng-task-3-gallery-app.vercel.app/
 
 2. Clicking on the demo will take you to the gallery page
 
